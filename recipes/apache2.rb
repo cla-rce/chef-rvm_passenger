@@ -56,6 +56,7 @@ rvm_shell "passenger_apache2_module" do
   not_if        { ::File.exists? node['rvm_passenger']['module_path'] }
 end
 
+# If there are any passenger directives set then load them, otherwise pass an empty hash to the template
 conf_directives = node[:rvm_passenger].has_key?('directives') ? node[:rvm_passenger]['directives'] : {}
 
 template "#{apache_dir}/mods-available/passenger.load" do
