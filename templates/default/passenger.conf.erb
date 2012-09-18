@@ -5,8 +5,6 @@
 PassengerRoot <%= node['rvm_passenger']['root_path'] %>
 PassengerRuby <%= node['rvm_passenger']['ruby_wrapper'] %>
 
-<% if not @params['directives'].nil? -%>
 <% @params['directives'].each do |d,v| -%>
 <%= d -%> <%= v %>
-<% end %>
 <% end %>
