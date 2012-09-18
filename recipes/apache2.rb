@@ -56,6 +56,8 @@ rvm_shell "passenger_apache2_module" do
   not_if        { ::File.exists? node['rvm_passenger']['module_path'] }
 end
 
+conf_directives = node[:rvm_passenger]['directives'].nil ? nil : node[:rvm_passenger]['directives']
+
 template "#{apache_dir}/mods-available/passenger.load" do
   source  'passenger.load.erb'
   owner   'root'
@@ -69,7 +71,7 @@ template "#{apache_dir}/mods-available/passenger.conf" do
   group   'root'
   mode    '0755'
   variables({
-    :directives => node[:rvm_passenger]['directives']
+    :directives => conf_directives
   })
 end
 
