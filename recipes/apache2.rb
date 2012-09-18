@@ -68,6 +68,9 @@ template "#{apache_dir}/mods-available/passenger.conf" do
   owner   'root'
   group   'root'
   mode    '0755'
+  variables({
+    :directives => node[:rvm_passenger]['directives']
+  })
 end
 
 apache_module "passenger" do
