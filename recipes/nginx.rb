@@ -61,11 +61,17 @@ rvm_shell "build passenger_nginx_module" do
   CHECK
 end
 
+# If there are any passenger directives set then load them, otherwise pass an empty hash to the template
+conf_directives = node[:rvm_passenger].has_key?('directives') ? node[:rvm_passenger]['directives'] : {}
+
 template "#{nginx_dir}/conf.d/passenger.conf" do
   source    "passenger_nginx.conf.erb"
   owner     "root"
   group     "root"
   mode      "0644"
+  variables({
+    :directives => conf_directives
+  })
   notifies  :restart, resources(:service => "nginx")
 end
 
