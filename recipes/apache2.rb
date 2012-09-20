@@ -60,7 +60,7 @@ end
 # the template. Reformat into apache-style directives.
 conf_directives = {}
 node[:rvm_passenger]['directives'].each do |k,v|
-  if not v.nil
+  if not v.nil?
     k.gsub!(/_(\w)|^(\w)/) {|s| (s.gsub(/_/, '')).upcase}
     conf_directives[k] = v
   end

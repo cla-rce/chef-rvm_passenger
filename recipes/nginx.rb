@@ -66,7 +66,7 @@ end
 conf_directives = {}
 node[:rvm_passenger]['directives'].each do |opt|
   opt.each do |k,v|
-    if not v.nil
+    if not v.nil?
       conf_directives[k] = v
     end
   end
