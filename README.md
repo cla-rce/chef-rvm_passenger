@@ -143,9 +143,14 @@ Optionallly override the full path to the Apache2 module.
 
 Server-wide configuration settings. For example:
 
-    node['rvm_passenger']['directives'] = {
+    node['rvm_passenger']['directives']['apache'] = {
         "PassengerUserSwitching" => "Off"
-        "PassengerDefaultUser" => "Nobody"
+        "PassengerDefaultUser" => "nobody"
+    }
+
+    node['rvm_passenger']['directives']['nginx'] = {
+        "passenger_user_switching" => "off"
+        "passenger_default_user" => "nobody"
     }
 
 Disable user switching and set the passenger default user to nobody. Both are only valid in server-scope configuration (http block for nginx and server context for Apache).
