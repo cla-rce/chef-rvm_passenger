@@ -61,8 +61,8 @@ end
 conf_directives = {}
 node[:rvm_passenger]['directives'].each do |k,v|
   if not v.nil?
-    k.gsub!(/_(\w)|^(\w)/) {|s| (s.gsub(/_/, '')).upcase}
-    conf_directives[k] = v
+    key = k.gsub(/_(\w)|^(\w)/) {|s| (s.gsub(/_/, '')).upcase}
+    conf_directives[key] = v
   end
 end
 
