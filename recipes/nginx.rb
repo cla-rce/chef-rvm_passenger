@@ -64,11 +64,9 @@ end
 # Get the passenger directives. If any of them are not null, pass it to
 # the template. 
 conf_directives = {}
-node[:rvm_passenger]['directives'].each do |opt|
-  opt.each do |k,v|
-    if not v.nil?
-      conf_directives[k] = v
-    end
+node[:rvm_passenger]['directives'].each do |k,v|
+  if not v.nil?
+    conf_directives[k] = v
   end
 end
 
