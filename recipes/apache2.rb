@@ -57,5 +57,6 @@ rvm_shell "passenger_apache2_module" do
 end
 
 apache_module "passenger" do
+  module_path node['rvm_passenger']['module_path']
   conf true
 end
