@@ -33,7 +33,6 @@ Please [report][issues] any additional platforms so they can be added.
 This cookbook depends on the following external cookbooks:
 
 * [rvm][rvm_cb]
-* [nginx][nginx_cb] (Opscode)
 * [apache2][apache2_cb] (Opscode)
 
 ## <a name="installation"></a> Installation
@@ -106,10 +105,6 @@ Installs dependencies and contains helpers for other recipes.
 
 Installs passenger as an apache2 module. Requires the `apache2` recipe.
 
-### <a name="recipes-nginx"></a> nginx
-
-Installs passenger as an nginx module. Requires the `nginx::source` recipe.
-
 ## <a name="attributes"></a> Attributes
 
 ### <a name="attributes-version"></a> version
@@ -175,7 +170,6 @@ limitations under the License.
 [chef_repo]:    https://github.com/opscode/chef-repo
 [kgc]:          https://github.com/websterclay/knife-github-cookbooks#readme
 [librarian]:    https://github.com/applicationsonline/librarian#readme
-[nginx_cb]:     http://community.opscode.com/cookbooks/nginx
 [rvm_cb]:       https://github.com/fnichol/chef-rvm
 
 [repo]:         https://github.com/fnichol/chef-rvm_passenger
